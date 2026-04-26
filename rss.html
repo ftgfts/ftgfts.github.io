@@ -305,12 +305,13 @@
     </div>
 
     <script>
-      /* Configuration */
+      // ========================================
+      // ARSS FEED URLS HERE
+      // ========================================
       const feeds = {
-        "Feed 1": "https://example.com/feed1.xml",
-        "Feed 2": "https://example.com/feed2.xml",
-        "Feed 3": "https://example.com/feed3.xml",
+        "YTS YIFY": "https://yts.bz/browse-movies/0/all/all/0/featured/0/all"
       };
+      // ========================================
 
       let loadedCount = 0;
       const errorFeeds = new Set();
@@ -318,7 +319,6 @@
       let dividerAdded = false;
       const feedCache = new Map();
 
-      /* Cookies */
       function setCookie(name, value, days = 365) {
         const d = new Date();
         d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
@@ -330,7 +330,6 @@
         return v ? decodeURIComponent(v.pop()) : null;
       }
 
-      /* Theme management */
       function applyTheme(theme) {
         if (theme === "dark") {
           document.documentElement.style.setProperty("--bg", "#0b0b0b");
@@ -540,7 +539,6 @@
         return container.innerHTML;
       }
 
-      /* Load feed with retry logic and timeout */
       async function loadFeed(name, url) {
         const section = document.createElement("section");
         section.className = "feed-section loading";
